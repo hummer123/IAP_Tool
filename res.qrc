@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/images">
+        <file alias="clear">images/clear.png</file>
+        <file alias="close">images/close.png</file>
+        <file alias="open">images/open.png</file>
+        <file alias="window">images/window.ico</file>
+    </qresource>
+</RCC>
