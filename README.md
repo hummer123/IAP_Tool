@@ -11,17 +11,17 @@ IAP Tool use MCU IAP download
 
 # 串口的串口实时自动扫描
 在这里我写了一个PortCheck类，类中实现了一个槽函数sysPortCheck用于检测当前PC机可用端口并刷新在界面上.
-主程序创建一个定时器，定时1s去触发PortCheck中的sysPortCheck槽函数，同时把PortCheck类移到线程中;
-'''C++
+主程序创建一个定时器，定时1s去触发PortCheck中的sysPortCheck槽函数，同时把PortCheck类移到线程中; <br>
+```C++
 connect(sysTimer, &QTimer::timeout, portCheck, &PortCheck::sysPortCheck);
 connect(portCheck, &PortCheck::stopCurPort, this, &MainWindow::openSerialPort);
 portCheck->moveToThread(secondThread);
 secondThread->start();
 sysTimer->start(1000);  //1s检测一次可用串口数
-'''
+```
 
 # 串口的接收
-这里串口的数据接收采用定时接收，当串口缓冲区中有数据可读时，定时100ms在去读，保证完整地读取一帧数据
+这里串口的数据接收采用定时接收，当串口缓冲区中有数据可读时，定时100ms在去读，保证完整地读取一帧数据.
 
 # 效果图
 ![image](https://github.com/hummer123/IAP_Tool/raw/master/README-PIC/Use.png)
